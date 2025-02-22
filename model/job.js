@@ -93,14 +93,17 @@ let schema = new mongoose.Schema(
       required: true,
     },
     duration: {
-    type: String,
-    validate: {
-        validator: function (v) {
-            return /^\d+$/.test(v); // Ensures the string contains only digits
+      type: Number,
+      min: 0,
+      validate: [
+        {
+          validator: Number.isInteger,
+          msg: "Duration should be an integer",
         },
-        msg: "Duration should be a valid integer as a string",
-    },
-},
+      ],
+    }, 
+
+
 
     salary: {
       type: Number,

@@ -52,6 +52,23 @@ schema.pre("save", function (next) {
   });
 });
 
+// Password verification upon login
+// schema.methods.login = function (password) {
+//   let user = this;
+
+//   return new Promise((resolve, reject) => {
+//     bcrypt.compare(password, user.password, (err, result) => {
+//       if (err) {
+//         reject(err);
+//       }
+//       if (result) {
+//         resolve();
+//       } else {
+//         reject();
+//       }
+//     });
+//   });
+// };
 
 schema.methods = {
   login: function (password) {
